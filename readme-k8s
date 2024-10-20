@@ -16,8 +16,12 @@ ls -l
 chmod 777 k8s-nodes.sh
 ls -l
 ./k8s-nodes.sh
+##########################################################################
+RUN THE COMMAND IN NODES:
 
-
+modprobe br_netfilter
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+echo 1 > /proc/sys/net/ipv4/ip_forward
 ###########################################################################
 
 After k8s installation is done . we need to connect nodes with the master via tokens 
